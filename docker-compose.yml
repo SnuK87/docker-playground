@@ -1,0 +1,15 @@
+version: '2'
+services:
+
+  service:
+    image: snuk/service-one
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      - MYSQL_URL=jdbc:mysql://database:3306/persons
+      - SERVICE_VERSION=2
+
+  database:
+    image: snuk/database-one
